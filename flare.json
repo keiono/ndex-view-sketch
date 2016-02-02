@@ -1,0 +1,120 @@
+{
+  "name": "TP53",
+  "type": "query",
+  "children": [
+    {
+      "name": "GO Biological Process",
+      "type": "go-root",
+      "children": [
+        {
+          "name": "nitrogen compound metabolic process",
+          "type": "go-term",
+          "size": 3534,
+          "children": [
+            {"name": "TP53", "type": "gene", "size": 300},
+            {"name": "BRCA1", "type": "gene", "size": 300},
+            {"name": "EGFR", "type": "gene", "size": 300},
+            {"name": "SIRT1", "type": "gene", "size": 300},
+            {"name": "PARP1", "type": "gene", "size": 300}
+          ]
+        }, {
+          "name": "catabolic process",
+          "type": "go-term",
+          "size": 3534,
+          "children": [
+            {"name": "TP53", "type": "gene", "size": 300},
+            {"name": "BRCA1", "type": "gene", "size": 300},
+            {"name": "EGFR", "type": "gene", "size": 300},
+            {"name": "SIRT1", "type": "gene", "size": 300},
+            {"name": "PARP1", "type": "gene", "size": 300},
+            {"name": "ATM", "type": "gene", "size": 300},
+            {"name": "MTOR", "type": "gene", "size": 300},
+            {"name": "MLH1", "type": "gene", "size": 300},
+            {"name": "ABL1", "type": "gene", "size": 300},
+            {"name": "OGG1", "type": "gene", "size": 300},
+            {"name": "UBC", "type": "gene", "size": 300},
+            {"name": "CHEK2", "type": "gene", "size": 300},
+            {"name": "CDK1", "type": "gene", "size": 300},
+            {"name": "CDK2", "type": "gene", "size": 300},
+            {"name": "HMGB1", "type": "gene", "size": 300}
+          ]
+        }, {
+          "name": "biosynthetic process",
+          "type": "go-term",
+          "size": 3534
+        }, {
+          "name": "positive regulation of metabolic process",
+          "type": "go-term",
+          "size": 3534
+        }, {
+          "name": "negative regulation of metabolic process",
+          "type": "go-term",
+          "size": 3534
+        }
+      ]
+    }, {
+      "name": "GO Molecular Function",
+      "type": "go-root",
+      "children": [
+        {
+          "name": "nitrogen compound metabolic process",
+          "size": 3534
+        }, {
+          "name": "catabolic process",
+          "size": 3534
+        }, {
+          "name": "biosynthetic process",
+          "size": 3534
+        }, {
+          "name": "positive regulation of metabolic process",
+          "size": 3534
+        }, {
+          "name": "negative regulation of metabolic process",
+          "size": 3534
+        }
+      ]
+    }, {
+      "name": "GO Cellular Component",
+      "type": "go-root",
+      "children": [
+        {
+          "name": "nitrogen compound metabolic process",
+          "size": 3534
+        }, {
+          "name": "catabolic process",
+          "size": 3534
+        }, {
+          "name": "biosynthetic process",
+          "size": 3534
+        }, {
+          "name": "positive regulation of metabolic process",
+          "size": 3534
+        }, {
+          "name": "negative regulation of metabolic process",
+          "size": 3534
+        }
+      ]
+    }, {
+      "name": "KEGG Pathways",
+      "type": "go-root",
+      "children": [
+        {
+          "name": "Base excision repair",
+          "size": 3534
+        }, {
+          "name": "Pathways in cancer",
+          "size": 3534
+        }, {
+          "name": "Cell cycle",
+          "size": 3534
+        }, {
+          "name": "p53 signaling pathway",
+          "size": 3534
+        }, {
+          "name": "Pancreatic cancer",
+          "size": 3534
+        }
+      ]
+    }
+  ]
+}
