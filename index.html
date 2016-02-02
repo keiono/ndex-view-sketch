@@ -1,123 +1,124 @@
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NDEx Valet Detail View Idea</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.0/material.cyan-light_blue.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 	<script src="venn.js"></script>
   	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-</head>
+  </head>
 
-<style>
+  <body>
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">DNA Repair</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search">
+              <label class="mdl-textfield__label" for="search">Enter your query for filtering...</label>
+            </div>
+          </div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+            <li class="mdl-menu__item">Help</li>
+            <li class="mdl-menu__item">About</li>
+          </ul>
+        </div>
+      </header>
+      
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>DNA Repair</a>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Coverage</a>
+          <div class="mdl-layout-spacer"></div>
+          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+        </nav>
+      </div>
 
-h1, h2, h3 {
-	font-family: "helvatica" !important;
-	font-weight: 300;
-}
+      <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-grid demo-content">
+          <div class="demo-charts mdl-color--white mdl-shadow--1dp mdl-cell mdl-cell--12-col mdl-grid">
+			<div id="tree"></div>
+          </div>
 
-.venntooltip {
-  position: absolute;
-  text-align: center;
-  width: 10em;
-  height: 3em;
-  background: #EEEEEE;
-  color: #777777;
-  border: 0px;
-  border-radius: 0.3em;
-  opacity: 0;
-}
+          <div class="demo-cards mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+          	<!-- Card1: Matched -->
+            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+              <div class="mdl-color--white-300">
+    			<div id="venn"></div>
+              </div>
+              <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                <ul class="demo-list-icon mdl-list">
+                <li class="mdl-list__item">Nodes in Network: 1222</li>
+                <li class="mdl-list__item">Nodes in Query: 154</li>
+                <li class="mdl-list__item"><strong>Matched: 55</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-#tree {	
-  background: #f0f0f0;
-}
+          <div class="demo-cards mdl-cell mdl-cell--7-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+          	<!-- Card1: Matched -->
+            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+              <div class="mdl-color--teal-300">
+  				<div id="myDiv"></div>
+              </div>
+            </div>
+          </div>
 
-.node text {
-  font-size: 0.8em;
-}
-
-path.link {
-  fill: none;
-  stroke: rgba(100, 100, 100, 0.5);
-  stroke-width: 1px;
-}
-</style>
-
-<body>
-	<h1>Network Title Here: 1233 Nodes / 822 Edges</h1>
- 	<h3>Matched Genes: 55</h3>
-    <div id="venn"></div>
-
- 	<h3>Details</h3>
-	<div id="tree"></div>
-
-  	<div id="myDiv" style="width: 800px; height: 300px;"></div>
-
-  	<script>
-		var sets = [ 
-			{sets: ['Genes in network'], size: 1233},
-            {sets: ['Query genes'], size: 152},
-            {sets: ['Genes in network','Query genes'], size: 75},
-        ];
-		var chart = venn.VennDiagram().width(300).height(300);
-		var div = d3.select("#venn")
-		d3.select("#venn").datum(sets).call(chart);
-
-		var tooltip = d3.select("body").append("div")
-    					.attr("class", "venntooltip");
-
-		div.selectAll("g")
-		    .on("mouseover", function(d, i) {
-		        // sort all the areas relative to the current item
-		        venn.sortAreas(div, d);
-
-		        // Display a tooltip with the current size
-		        tooltip.transition().duration(400).style("opacity", .9);
-		        tooltip.text(d.size + " genes");
-
-		        // highlight the current path
-		        var selection = d3.select(this).transition("tooltip").duration(400);
-		        selection.select("path")
-		            .style("stroke-width", 3)
-		            .style("fill-opacity", d.sets.length == 1 ? .4 : .1)
-		            .style("stroke-opacity", 1);
-		    })
-
-		    .on("mousemove", function() {
-		        tooltip.style("left", (d3.event.pageX) + "px")
-		               .style("top", (d3.event.pageY - 28) + "px");
-		    })
-
-		    .on("mouseout", function(d, i) {
-		        tooltip.transition().duration(800).style("opacity", 0);
-		        var selection = d3.select(this).transition("tooltip").duration(400);
-		        selection.select("path")
-		            .style("stroke-width", 0)
-		            .style("fill-opacity", d.sets.length == 1 ? .25 : .0)
-		            .style("stroke-opacity", 0);
-		    });
-
-  		var bp = {
-  			y: [
-  				'nitrogen compound metabolic process',
-  				'catabolic process',
-  				'biosynthetic process',
-  				'negative regulation of metabolic process',
-  				'positive regulation of metabolic process'
-  			], 
-  			x: [30,13,24,22,25],
-  			orientation: 'h',
-  			name: 'Nodes in Network',
-  			 marker: {
-    			color: 'rgba(00,128,191,0.8)',
-    			width: 0
-  			},
-  			type: 'bar'
-		};
-
-
-		var data = [bp];
-		var layout = {
-			title: 'GO Biological Process'};
-
-		Plotly.newPlot('myDiv', data, layout);
-
-
-  	</script>
+        </div>
+      </main>
+    </div>
+    <script src="https://code.getmdl.io/1.1.0/material.min.js"></script>
 	<script src="tree.js"></script>
-</body>
+	<script src="venn-diagram.js"></script>
+  </body>
+</html>

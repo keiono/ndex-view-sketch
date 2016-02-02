@@ -46,7 +46,7 @@ function update(source) {
 
   // Normalize for fixed-depth.
   nodes.forEach(function(d) {
-    d.y = d.depth * 320;
+    d.y = d.depth * 200;
   });
 
   // Update the nodes…
