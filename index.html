@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
@@ -28,97 +28,133 @@
     <link rel="canonical" href="http://www.example.com/">
     -->
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.0/material.cyan-light_blue.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
     </style>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-	<script src="venn.js"></script>
-  	<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  </head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="venn.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
 
-  <body>
-    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+<body>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">DNA Repair</span>
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Enter your query for filtering...</label>
+            <span class="mdl-layout-title">DNA Repair</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" id="search">
+                    <label class="mdl-textfield__label" for="search">Enter your query for filtering...</label>
+                </div>
             </div>
-          </div>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-            <i class="material-icons">more_vert</i>
-          </button>
-          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">Help</li>
-            <li class="mdl-menu__item">About</li>
-          </ul>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                <li class="mdl-menu__item">Help</li>
+                <li class="mdl-menu__item">About</li>
+            </ul>
         </div>
-      </header>
-      
-      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+    </header>
+
+    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>DNA Repair</a>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i>Coverage</a>
-          <div class="mdl-layout-spacer"></div>
-          <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons"
+                                                       role="presentation">home</i>DNA Repair</a>
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons"
+                                                       role="presentation">delete</i>Coverage</a>
+            <div class="mdl-layout-spacer"></div>
+            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons"
+                                                       role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>
-      </div>
+    </div>
 
-      <main class="mdl-layout__content mdl-color--grey-100">
+    <main class="mdl-layout__content mdl-color--grey-100">
+
+
+        <div class="mdl-grid mdl-grid--no-spacing demo-content">
+            <div class="mdl-color--teal mdl-cell mdl-cell--12-col">
+                <h4>Functional View</h4>
+            </div>
+
+
+            <div class="demo-charts mdl-cell mdl-color--white mdl-cell--2-col">
+                <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable">
+                    <thead>
+                    <tr>
+                        <th class="mdl-data-table__cell--non-numeric">Query Gene</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">BRCA1</td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">BRCA2</td>
+                    </tr>
+                    <tr>
+                        <td class="mdl-data-table__cell--non-numeric">TP53</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="demo-charts mdl-color--white mdl-cell mdl-cell--10-col">
+                <div id="tree"></div>
+            </div>
+        </div>
+
         <div class="mdl-grid demo-content">
-          <div class="demo-charts mdl-color--white mdl-shadow--1dp mdl-cell mdl-cell--12-col mdl-grid">
-			<div id="tree"></div>
-          </div>
 
-          <div class="demo-cards mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
-          	<!-- Card1: Matched -->
-            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-              <div class="mdl-color--white-300">
-    			<div id="venn"></div>
-              </div>
-              <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-                <ul class="demo-list-icon mdl-list">
-                <li class="mdl-list__item">Nodes in Network: 1222</li>
-                <li class="mdl-list__item">Nodes in Query: 154</li>
-                <li class="mdl-list__item"><strong>Matched: 55</strong></li>
-                </ul>
-              </div>
+            <div class="demo-cards mdl-cell mdl-cell--5-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+                <!-- Card1: Matched -->
+                <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+                    <div class="mdl-color--white-300">
+                        <div id="venn"></div>
+                    </div>
+                    <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+                        <ul class="demo-list-icon mdl-list">
+                            <li class="mdl-list__item">Nodes in Network: 1222</li>
+                            <li class="mdl-list__item">Nodes in Query: 154</li>
+                            <li class="mdl-list__item"><strong>Matched: 55</strong></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <div class="demo-cards mdl-cell mdl-cell--7-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
-          	<!-- Card1: Matched -->
-            <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
-              <div class="mdl-color--teal-300">
-  				<div id="myDiv"></div>
-              </div>
+            <div class="demo-cards mdl-cell mdl-cell--7-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+                <!-- Card1: Matched -->
+                <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+                    <div class="mdl-color--teal-300">
+                        <div id="myDiv"></div>
+                    </div>
+                </div>
             </div>
-          </div>
 
         </div>
-      </main>
-    </div>
-    <script src="https://code.getmdl.io/1.1.0/material.min.js"></script>
-	<script src="tree.js"></script>
-	<script src="venn-diagram.js"></script>
-  </body>
+    </main>
+</div>
+<script src="https://code.getmdl.io/1.1.0/material.min.js"></script>
+<script src="tree.js"></script>
+<script src="venn-diagram.js"></script>
+</body>
 </html>

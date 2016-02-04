@@ -202,3 +202,10 @@ path.link {
   stroke: rgba(100, 100, 100, 0.5);
   stroke-width: 1px;
 }
+.demo-list-radio {
+  display: inline;
+}
+
+.demo-list-control {
+  width: 180px;
+}
